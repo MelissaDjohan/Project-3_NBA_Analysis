@@ -21,6 +21,9 @@ In this project we will be looking to find relationships between the **playersâ€
 
 The graphs that will be developed are going to be utilizing multiple different charts to show how salaries correlate to certain statistics provided earlier. Some of the charts that might be used on our dashboard are a **scatter plot, bar chart, box plot, radar chart and a bubble chart.** The dashboard will feature a **drop down menu** that will allow the user to pick the statistic they find interesting to compare against salary. 
 
+### Full Data Set
+https://github.com/MelissaDjohan/Project-3_NBA_Analysis/blob/master/output.xlsx
+
 ### Authors
 - Melissa Djohan
 - Tyler Fasulo
