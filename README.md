@@ -24,7 +24,7 @@ The graphs that will be developed are going to be utilizing multiple different c
 ### Full Data Set
 https://github.com/MelissaDjohan/Project-3_NBA_Analysis/blob/master/output.xlsx
 
-### Authors
+### Authors (ordered alphabetically by last name)
 - Melissa Djohan
 - Tyler Fasulo
 - Luan Hajnaj
