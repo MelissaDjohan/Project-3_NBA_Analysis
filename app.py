@@ -84,6 +84,11 @@ def index():
     """Return the homepage."""
     return render_template("index.html")
 
+@app.route("/height")
+def index2():
+    
+    return render_template("index2.html")
+
 
 @app.route("/player1")  # select * from players
 def player1():
