@@ -13,14 +13,21 @@ d3.json("/player2").then(function (response) {
         var trace1 = {
                 y: salary,
                 x: height,
-                type: 'box'
+                type: 'box',
+                name: "",
+                marker: {
+                        size: salary / 1000000,
+                        // sizeref: .0000001,
+                        // sizemode: 'area',
+                        color: 'blue'
+                },
         };
 
         var layout = {
                 title: 'Salary v. Height',
                 showlegend: false,
                 height: 600,
-                width: 800,
+                // width: 800,
                 hovermode: 'closest',
                 xaxis: {
                         title: {
@@ -47,7 +54,8 @@ d3.json("/player2").then(function (response) {
         };
 
         var data = [trace1];
-
+       
         Plotly.newPlot('chart here', data, layout);
+        
         
 });

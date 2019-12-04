@@ -34,7 +34,7 @@ d3.json("/player2").then(function (response) {
                 title: 'Salary v. Draft Year',
                 showlegend: false,
                 height: 600,
-                width: 800,
+                // width: 800,
                 hovermode: 'closest',
                 xaxis: {
                         title: {

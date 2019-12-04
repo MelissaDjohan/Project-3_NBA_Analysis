@@ -9,30 +9,31 @@ d3.json("/player2").then(function (response) {
         var height = data.map(d => d.height)
         // console.log(height)
 
-        var trace1 = [{
-                x: ages,
+        
+        var trace1 = {
                 y: salary,
+                x: ages,
+                type: 'box',
+                // color: 'blue',
 
-                // type: "scatter",
                 text: names,
                 mode: "markers",
                 marker: {
                         size: salary / 1000000,
                         // sizeref: .0000001,
                         // sizemode: 'area',
-                        color: salary
+                        color: 'blue'
                 },
-                hovertemplate: '<i>Player:</i> %{text}' +
-                        '<br><b>Age</b>: %{x:} years old<br>' +
-                        '<b>Salary</b>: $%{y:,}',
+                hovertemplate: '<i>Player:</i> %{text} <br>' + '<b>Salary</b>: $%{y:,}',
                 hoverinfo: "hello",
                 name: ""
-        }]
+        };
+
         var layout = {
                 title: 'Salary v. Age',
                 showlegend: false,
                 height: 600,
-                width: 800,
+                // width: 800,
                 hovermode: 'closest',
                 xaxis: {
                         title: {
@@ -58,5 +59,9 @@ d3.json("/player2").then(function (response) {
                 }
         };
 
-        Plotly.plot('chart here', trace1, layout);
+        var data = [trace1];
+       
+        Plotly.newPlot('chart here', data, layout);
+        
+        
 });

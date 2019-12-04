@@ -104,11 +104,6 @@ def index5():
     
     return render_template("index5_plusminus_scatter.html")
 
-@app.route("/heightbox")
-def index6():
-    
-    return render_template("index6_height_box.html")
-
 @app.route("/heighthistogram")
 def index7():
     
@@ -118,6 +113,12 @@ def index7():
 def index8():
     
     return render_template("index8_service_line.html")
+
+@app.route("/stacked")
+def index9():
+    
+    return render_template("index9_team_salary_stacked.html")
+
 
 
 
