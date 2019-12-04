@@ -87,7 +87,40 @@ def index():
 @app.route("/height")
 def index2():
     
-    return render_template("index2.html")
+    return render_template("index2_height_scatter.html")
+
+@app.route("/age")
+def index3():
+    
+    return render_template("index3_age_scatter.html")
+
+@app.route("/ppg")
+def index4():
+    
+    return render_template("index4_ppg_scatter.html")
+
+@app.route("/plusminus")
+def index5():
+    
+    return render_template("index5_plusminus_scatter.html")
+
+@app.route("/heightbox")
+def index6():
+    
+    return render_template("index6_height_box.html")
+
+@app.route("/heighthistogram")
+def index7():
+    
+    return render_template("index7_height_histogram.html")
+
+@app.route("/serviceline")
+def index8():
+    
+    return render_template("index8_service_line.html")
+
+
+
 
 
 @app.route("/player1")  # select * from players

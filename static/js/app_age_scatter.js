@@ -10,7 +10,7 @@ d3.json("/player2").then(function (response) {
         // console.log(height)
 
         var trace1 = [{
-                x: height,
+                x: ages,
                 y: salary,
 
                 // type: "scatter",
@@ -23,20 +23,20 @@ d3.json("/player2").then(function (response) {
                         color: salary
                 },
                 hovertemplate: '<i>Player:</i> %{text}' +
-                        '<br><b>Height</b>: %{x:.2f} feet<br>' +
+                        '<br><b>Age</b>: %{x:} years old<br>' +
                         '<b>Salary</b>: $%{y:,}',
                 hoverinfo: "hello",
                 name: ""
         }]
         var layout = {
-                title: 'Salary v. Height',
+                title: 'Salary v. Age',
                 showlegend: false,
                 height: 600,
                 width: 800,
                 hovermode: 'closest',
                 xaxis: {
                         title: {
-                                text: 'Height',
+                                text: 'Age',
                                 font: {
                                         family: 'Courier New, monospace',
                                         size: 18,
