@@ -23,7 +23,7 @@ d3.json("/player2").then(function (response) {
                 },
                 series: [
                         {
-                                values: position
+                                values: [20, 40, 25, 50, 15, 45, 33, 34]
                         },
                         {
                                 values: [5, 30, 21, 18, 59, 50, 28, 33]
