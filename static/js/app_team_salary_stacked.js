@@ -82,7 +82,8 @@ d3.json("/player2").then(function (response) {
                         },
                         {
                                 values: positionsByTeam.map(d=> d.centerSalary)
-                        }
+                        },
+                        text=positionsByTeam.map(d=> d.name)
                 ],
 
 
@@ -97,7 +98,8 @@ d3.json("/player2").then(function (response) {
                         marker:{
                           borderRadius:"2px",
                           borderColor:"none"
-                        }
+                        },
+                       
                      },
 
                 tooltip:{
