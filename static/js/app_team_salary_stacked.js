@@ -53,7 +53,8 @@ d3.json("/player2").then(function (response) {
                 
         });
         console.log(positionsByTeam)
-
+        positionsByTeam.splice(2,2)
+        console.log(positionsByTeam)
 
         var myConfig = {
                 type: "bar",
@@ -61,11 +62,24 @@ d3.json("/player2").then(function (response) {
                         stacked: true,
                         stackType: "100%"
                 },
+
+                "title": {
+                        "text": "Proportion of Team's Salary Spent by Position",
+                        "font-color": "black",
+                        "backgroundColor": "none",
+                        "font-size": "22px",
+                        "alpha": 1,
+                        "adjust-layout":true,
+                        "font-weight": "bold"
+                    },
+
                 'scale-x': {
                         label: { /* Scale Title */
                           text: "TEAMS",
                         },
                         labels: positionsByTeam.map(d=> d.name),
+                        "items-overlap":true,
+                        "max-items":30
                         
                       },
 
@@ -75,15 +89,18 @@ d3.json("/player2").then(function (response) {
                 },
                 series: [
                         {
-                                values: positionsByTeam.map(d=> d.guardSalary)
+                                values: positionsByTeam.map(d=> d.guardSalary),
+                                text: "Guards"
                         },
                         {
-                                values: positionsByTeam.map(d=> d.forwardSalary)
+                                values: positionsByTeam.map(d=> d.forwardSalary),
+                                text: "Forwards"
                         },
                         {
-                                values: positionsByTeam.map(d=> d.centerSalary)
-                        },
-                        text=positionsByTeam.map(d=> d.name)
+                                values: positionsByTeam.map(d=> d.centerSalary),
+                                text: "Centers"
+                        }
+                        
                 ],
 
 
@@ -102,26 +119,26 @@ d3.json("/player2").then(function (response) {
                        
                      },
 
-                tooltip:{
-                        borderRadius:"3px",
-                        borderColor:"#F4F2F2",
-                        borderWidth:2,
-                        width: 90,
-                        callout:true,
-                        height:50,
-                        fontSize: 12,
-                        shadow:false,
-                       text:positionsByTeam.map(d=> d.name),
-                        short: true,
-                        decimals:1,
-                        rules:[
-                           {
-                             rule:"%p === 0 && %i === 3 || %p === 1 && %i === 3",
-                             text: "%kt Projected: $%v in %t Sales",
-                             backgroundColor:"#7d7d7d"
-                           }  
-                        ]
-                     },
+                // tooltip:{
+                //         borderRadius:"3px",
+                //         borderColor:"#F4F2F2",
+                //         borderWidth:2,
+                //         width: 90,
+                //         callout:true,
+                //         height:50,
+                //         fontSize: 12,
+                //         shadow:false,
+                //        text:positionsByTeam.map(d=> d.name),
+                //         short: true,
+                //         decimals:1,
+                //         rules:[
+                //            {
+                //              rule:"%p === 0 && %i === 3 || %p === 1 && %i === 3",
+                //              text: "%kt Projected: $%v in %t Sales",
+                //              backgroundColor:"#7d7d7d"
+                //            }  
+                //         ]
+                //      },
         };
 
         zingchart.render({
