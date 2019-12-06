@@ -16,6 +16,7 @@ function buildTable() {
 
         var tbody = d3.select("tbody");
         tbody.html("");
+
     // Next, Loop through each object in the data
     // append a row and cells for each value in the row
         data.forEach((dataRow) => {
@@ -44,11 +45,12 @@ function handleClick() {
     if (name) {
         // apply `filter` to the table data to only keep the
         // rows where the `name` value matches the filter value
-        filteredData = filteredData.filter(row => row.player === name);
+        filteredData = filteredData.filter(d => d.player === name);
     }
 
     // rebuild the table using filtered data
     buildTable(filteredData);
+
 }
 
 // Attach an event to listen for the form button
