@@ -6,10 +6,54 @@ d3.json("/player2").then(function (response) {
         var teams = data.map(d => d.tm)
         // console.log(ages)
         var salary = data.map(d => d.salary_2019to2020)
+      
         var height = data.map(d => d.height)
         var ppg = data.map(d => d.pts)
         // console.log(height)
         var position = data.map(d => d.position)
+        
+        var guards = data.filter(d => d.position.charAt(0) === "G")
+        var forwards = data.filter(d => d.position.charAt(0) === "F")
+        var centers = data.filter(d => d.position.charAt(0) === "C")
+        console.log(forwards)
+
+        var teamSet = new Set(teams);
+        
+        var positionsByTeam = [];
+        teamSet.forEach(function sortTeam(teamName){
+                
+                
+                var guardArray = guards.filter(d => d.tm === teamName);
+                var guardSalary = guardArray.map(d => d.salary_2019to2020)
+                
+                guardsSalarySum = guardSalary.reduce(function(a, b) { return a + b; }, 0);
+                
+                
+                var forwardArray = forwards.filter(d => d.tm === teamName);
+                var forwardSalary = forwardArray.map(d => d.salary_2019to2020)
+                
+                forwardsSalarySum = forwardSalary.reduce(function(a, b) { return a + b; }, 0);
+                
+                
+                var centerArray = centers.filter(d => d.tm === teamName);
+                var centerSalary = centerArray.map(d => d.salary_2019to2020)
+                
+                centersSalarySum = centerSalary.reduce(function(a, b) { return a + b; }, 0);
+                
+
+                var teamAxis = {
+                        name:teamName,
+                        guardSalary:guardsSalarySum,
+                        forwardSalary:forwardsSalarySum,
+                        centerSalary:forwardsSalarySum
+
+                };
+                positionsByTeam.push(teamAxis)
+                
+                
+        });
+        console.log(positionsByTeam)
+
 
         var myConfig = {
                 type: "bar",
@@ -17,21 +61,65 @@ d3.json("/player2").then(function (response) {
                         stacked: true,
                         stackType: "100%"
                 },
+                'scale-x': {
+                        label: { /* Scale Title */
+                          text: "TEAMS",
+                        },
+                        labels: positionsByTeam.map(d=> d.name),
+                        
+                      },
+
                 scaleY: {
                         minValue: 0,
                         maxValue: 100
                 },
                 series: [
                         {
-                                values: [20, 40, 25, 50, 15, 45, 33, 34]
+                                values: positionsByTeam.map(d=> d.guardSalary)
                         },
                         {
-                                values: [5, 30, 21, 18, 59, 50, 28, 33]
+                                values: positionsByTeam.map(d=> d.forwardSalary)
                         },
                         {
-                                values: [30, 5, 18, 21, 33, 41, 29, 15]
+                                values: positionsByTeam.map(d=> d.centerSalary)
                         }
-                ]
+                ],
+
+
+                legend:{
+                        borderRadius:"3px",
+                        borderColor:"none",
+                        backgroundColor:"none",
+                        layout:"h",
+                        verticalAlign:"bottom",
+                        align:"center",
+                        shadow:false,
+                        marker:{
+                          borderRadius:"2px",
+                          borderColor:"none"
+                        }
+                     },
+
+                tooltip:{
+                        borderRadius:"3px",
+                        borderColor:"#F4F2F2",
+                        borderWidth:2,
+                        width: 90,
+                        callout:true,
+                        height:50,
+                        fontSize: 12,
+                        shadow:false,
+                       text:positionsByTeam.map(d=> d.name),
+                        short: true,
+                        decimals:1,
+                        rules:[
+                           {
+                             rule:"%p === 0 && %i === 3 || %p === 1 && %i === 3",
+                             text: "%kt Projected: $%v in %t Sales",
+                             backgroundColor:"#7d7d7d"
+                           }  
+                        ]
+                     },
         };
 
         zingchart.render({
