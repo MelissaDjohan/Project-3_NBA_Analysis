@@ -212,9 +212,9 @@ to {
     display: inline-block;
     text-align: center;
     width: 120px;
-    margin: 5px;
-    padding: 5px;
-    font-size: 15px;
+    margin: 2.5px;
+    padding: 2.5px;
+    font-size: 10px;
 }
 .menu-bar ul li a{
     text-decoration: none;
