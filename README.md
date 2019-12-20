@@ -25,8 +25,7 @@ The graphs that will be developed are going to be utilizing multiple different c
 https://github.com/MelissaDjohan/Project-3_NBA_Analysis/blob/master/output.xlsx
 
 ### Authors (ordered alphabetically by last name)
-- Limei Hou
 - Melissa Djohan
 - Tyler Fasulo
 - Luan Hajnaj
-
+- Limei Hou ( as backend developer, developed sqlite database and Flask server code which provids API services. )
