@@ -28,4 +28,4 @@ https://github.com/MelissaDjohan/Project-3_NBA_Analysis/blob/master/output.xlsx
 - Melissa Djohan
 - Tyler Fasulo
 - Luan Hajnaj
-- Limei Hou ( as backend developer, developed sqlite database and Flask server code which provids API services. )
+- Limei Hou ( as backend developer developed sqlite database and Flask server code which provids API services. )
